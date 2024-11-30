@@ -2,12 +2,12 @@ import cv2
 import numpy as np
 import requests
 
-GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfCy2Ll923EqIaS_-kUkDVQqFnmDLQu0oMKTGdJxR2OpIeoBA/formResponse"
+GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/YOURURL/formResponse"
 
 def submit_to_google_form(score, notes):
     form_data = {
-        "entry.318239957": score,
-        "entry.1566268890": notes
+        "entry.YOUR ENTRY": score,
+        "entry.YOUR ENTRY": notes
     }
     response = requests.post(GOOGLE_FORMS_URL, data=form_data)
     return response.status_code == 200
