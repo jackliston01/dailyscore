@@ -75,7 +75,7 @@ def lock_screen():
         draw_textbox(img_display, f"Score: {score_text}", (320, 250), input_active == "score")
         draw_textbox(img_display, f"Notes: {notes_text}", (320, 350), input_active == "notes", True)
         
-        cv2.putText(img_display, "TAB: Switch fields | ENTER: Submit | ESC: Exit", 
+        cv2.putText(img_display, "TAB: Switch fields | ENTER: Submit ", 
                     (320, 650), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 1)
         cv2.imshow(window_name, img_display)
         
