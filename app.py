@@ -1,7 +1,7 @@
 
 import tkinter as tk
 import requests
-GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/YOURURL/formResponse"
+GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfCy2Ll923EqIaS_-kUkDVQqFnmDLQu0oMKTGdJxR2OpIeoBA/formResponse"
 
 def submit_to_google_form():
     score = dayscore.get()
@@ -10,10 +10,10 @@ def submit_to_google_form():
     if note == "":
         note = "No notes"
     
-    print(score, note)
+  
     form_data = {
-        "entry.YOUR ENTRY": score,
-        "entry.YOUR ENTRY": note
+        "entry.318239957": score,
+        "entry.1566268890": note
     }
     response = requests.post(GOOGLE_FORMS_URL, data=form_data)
     return response.status_code == 200
@@ -25,9 +25,9 @@ def validitychecker(event=None):
         
         try:
             score = float(score)
-            print(score)
             if score >= 0 and score < 10: 
                 if len(str(score)) <= 3:
+                    root.quit()
                     return submit_to_google_form()
                 else:
                     error2 = tk.Label(root, text="Number must be only 1 decimal place or less", font=("Arial", 14), fg="blue")
