@@ -1,6 +1,6 @@
 import tkinter as tk
 import requests
-GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfCy2Ll923EqIaS_-kUkDVQqFnmDLQu0oMKTGdJxR2OpIeoBA/formResponse"
+GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/YOURURLHERE/formResponse"
 
 def submit_to_google_form():
     score = dayscore.get()
@@ -11,8 +11,8 @@ def submit_to_google_form():
     
   
     form_data = {
-        "entry.318239957": score,
-        "entry.1566268890": note
+        "entry.REPLACE": score,
+        "entry.REPLACE": note
     }
     response = requests.post(GOOGLE_FORMS_URL, data=form_data)
     return response.status_code == 200
