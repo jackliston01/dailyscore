@@ -1,4 +1,3 @@
-
 import tkinter as tk
 import requests
 GOOGLE_FORMS_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfCy2Ll923EqIaS_-kUkDVQqFnmDLQu0oMKTGdJxR2OpIeoBA/formResponse"
@@ -20,9 +19,10 @@ def submit_to_google_form():
 
 
 def validitychecker(event=None):
-    score = dayscore.get()
+
+    
     if score:
-        
+        score = dayscore.get()
         try:
             score = float(score)
             if score >= 0 and score < 10: 
@@ -54,29 +54,16 @@ def quitw(event=None):
 root = tk.Tk()
 root.attributes('-fullscreen', True)
 root.protocol("WM_DELETE_WINDOW", lock_window)
-root.attributes('-fullscreen', True)
 root.config(bg="#191d1e")
-
 root.title("DailyScore")
 
 
-tk.Label(root, text="Enter Day Score(0-10):", font=("Arial", 12,), width = 20, height=1).pack()
-
-dayscore = tk.Entry(root)
-dayscore.pack(pady=10)
-tk.Label(root, text="Enter Notes:", font=("Arial", 12,), width = 10, height=1).pack()
-
-notes = tk.Text(root, width = 50, height = 10)
-notes.pack(pady=10)
-
-submit = tk.Button(root, text="Submit", command=validitychecker, bg = "#404d71",  font=("Arial", 12,), width = 10, height=2)
-submit.pack(pady=20)
-
-
-instructions = tk.Label(root, text="Tab - Move Fields | Enter - Submit | Escape - Close", font=("Arial", 18, "bold"), bg = "#191d1e", fg="#ffffff",)
-
-# Pack the label at the bottom with the anchor option
-instructions.pack(side="bottom", pady=30)
+tk.Label(root, text="Enter Day Score(0-10):", font=("Arial", 12), width=20, height=1).pack()
+tk.Entry(root).pack(pady=10)
+tk.Label(root, text="Enter Notes:", font=("Arial", 12), width=10, height=1).pack()
+tk.Text(root, width=50, height=10).pack(pady=10)
+tk.Button(root, text="Submit", command=validitychecker, bg="#404d71", font=("Arial", 12), width=10, height=2).pack(pady=20)
+tk.Label(root, text="Tab - Move Fields | Enter - Submit | Escape - Close", font=("Arial", 18, "bold"), bg="#191d1e", fg="#ffffff").pack(side="bottom", pady=30)
 
 
 root.bind("<Escape>", quitw)
